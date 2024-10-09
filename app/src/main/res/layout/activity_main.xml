@@ -45,11 +45,18 @@
             app:layout_constraintTop_toBottomOf="@id/appLogo" />
 
         <!-- Welcome TextView -->
+
+        <!-- Profile List Button -->
+
+        <!-- Fragment Container (to load ProfileFragment) -->
+
+        <!-- No Data TextView -->
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="8dp"
             android:shadowColor="#000000"
             android:shadowDx="2"
             android:shadowDy="2"
@@ -63,12 +70,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appName" />
 
-        <!-- Profile List Button -->
         <Button
             android:id="@+id/profileListBtn"
             android:layout_width="165dp"
             android:layout_height="57dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="444dp"
             android:backgroundTint="#E41D48"
             android:elevation="8dp"
             android:text="Profile List"
@@ -78,18 +84,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView" />
 
-        <!-- Fragment Container (to load ProfileFragment) -->
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileListBtn" />
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <!-- No Data TextView -->
         <TextView
             android:id="@+id/noDataTextView"
             android:layout_width="wrap_content"

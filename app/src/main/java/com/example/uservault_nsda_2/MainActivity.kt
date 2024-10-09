@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     // Open the loading activity and pass the target activity (ProfileListActivity)
     private fun openLoadingActivity() {
         val intent = Intent(this, LoadingActivity::class.java)
-        intent.putExtra("TARGET_ACTIVITY", "com.example.userprofileregistration.ProfileListActivity")
+        intent.putExtra("TARGET_ACTIVITY", "com.example.uservault_nsda_2.ProfileListActivity")
         startActivity(intent)
         // Do not finish MainActivity here to keep it in the back stack
     }
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadFragment(fragment: ProfileFragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null) // This line adds the transaction to the back stack
             .commit()
     }
 
@@ -76,8 +77,14 @@ class MainActivity : AppCompatActivity() {
         if (drawerLayout.isDrawerOpen(androidx.core.view.GravityCompat.START)) {
             drawerLayout.closeDrawer(androidx.core.view.GravityCompat.START)
         } else {
-            // Move the app to the background instead of closing it
-            moveTaskToBack(true)
+            // Check if there are any fragments in the back stack
+            if (supportFragmentManager.backStackEntryCount > 0) {
+                // Pop the last fragment from the back stack
+                supportFragmentManager.popBackStack()
+            } else {
+                // Move the app to the background instead of closing it
+                moveTaskToBack(true)
+            }
         }
     }
 

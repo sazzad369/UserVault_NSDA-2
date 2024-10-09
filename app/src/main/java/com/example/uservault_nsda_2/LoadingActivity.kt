@@ -26,6 +26,6 @@ class LoadingActivity : AppCompatActivity() {
             }
             startActivity(targetIntent)
             finish()
-        }, 3000)
+        }, 2000)
     }
 }
